@@ -16,6 +16,9 @@ class App extends Component {
         <div className="container">
           <ItensList />
           <ItemDetail />
+          <div className="footer">
+            <p>A react app </p>
+          </div>
         </div>
       </div>
     );
