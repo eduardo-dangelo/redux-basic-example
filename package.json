@@ -2,7 +2,7 @@
   "name": "redux-basic-example",
   "version": "0.1.0",
   "license": "MIT",
-  "homepage": "https://eduardo-dangelo.github.io/redux-simple-example",
+  "homepage": "https://eduardo-dangelo.github.io/redux-basic-example",
   "private": true,
   "dependencies": {
     "react": "^15.6.1",
