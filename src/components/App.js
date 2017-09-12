@@ -17,7 +17,7 @@ class App extends Component {
           <ItensList />
           <ItemDetail />
           <div className="footer">
-            <p>A react app </p>
+            <p>A react app using redux to control the state of the application.</p>
           </div>
         </div>
       </div>
