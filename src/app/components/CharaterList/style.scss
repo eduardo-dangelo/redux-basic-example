@@ -1,0 +1,35 @@
+.character-list-container {
+  //border: 1px solid orange;
+  position: fixed;
+  bottom: 120px;
+  width: 100%;
+  perspective: 1500px;
+
+  .character-list {
+    //border: 1px dashed red;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 656px;
+    transform: rotateX(35deg);
+
+    .character {
+      //float: left;
+      margin: 5px;
+      width: 150px;
+      height: 150px;
+      border: 2px solid #440000;
+      box-shadow: 0 42px 28px rgba(0,0,0,0.4);
+      transition: .1s ease;
+
+      img {
+        width: 100%;
+      }
+
+      &:hover {
+        transform: translateY(5px);
+        box-shadow: 0 35px 13px rgba(0,0,0,0.4);
+      }
+    }
+  }
+}
