@@ -24,7 +24,7 @@ class CharacterList extends React.Component {
       // const itemClassName = activeItem && activeItem.title === character.title;
 
       return (
-        <div className={'character'} key={character.name} onClick={this.handleSelectCharacter(character)}>
+        <div className={`character ${!character.icon && 'space'}`} key={character.name} onClick={this.handleSelectCharacter(character)}>
           <img src={character.icon} alt={character.name} />
         </div>
       )
@@ -34,9 +34,15 @@ class CharacterList extends React.Component {
   render() {
     console.log('this.props.dbz', this.props.dbz)
     return (
-      <div className="character-list-container">
+      <div className="character-list-container animated bounceInUp">
+        <div className="logo-container animated rotateIn">
+          <img src={require('../../../img/logo.png')} alt=""/>
+        </div>
         <div className="character-list">
           {this.renderList()}
+        </div>
+        <div className="heading-container animated bounce">
+          <h1>Select Character</h1>
         </div>
       </div>
     )
