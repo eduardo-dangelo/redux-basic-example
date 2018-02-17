@@ -1,0 +1,66 @@
+.character-container {
+  //border: 1px solid orange;
+  position: absolute;
+  height: 100%;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &.player-2 {
+    right: 0;
+  }
+
+  .character {
+    height: 400px;
+    width: 100%;
+    //border: 3px solid green;
+    text-align: center;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 40px;
+      right: 30%;
+      content: '';
+      background: transparent;
+      width: 40%;
+      border-radius: 50%;
+      height: 15px;
+      box-shadow: 0 40px 45px rgba(0,0,0,0.7);
+    }
+
+    img {
+      margin: auto;
+      //border: 1px solid darkred;
+      height: 400px;
+      position: relative;
+    }
+  }
+
+  .select-btn-container {
+    //border: 1px solid blue;
+    position: absolute;
+    width: 100%;
+    margin-top: 220px;
+    text-align: center;
+
+    .select-btn {
+      background: transparent;
+      position: relative;
+      border: 2px solid #440000;
+      border-radius: 14px;
+      padding: 10px 15px;
+      font-weight: bold;
+      color: #440000;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 3;
+
+      &:hover {
+        background: #440000;
+        color: #666666;
+      }
+    }
+  }
+}
