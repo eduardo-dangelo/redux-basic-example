@@ -57,7 +57,7 @@ const initialState = {
       full: require('../img/full_gohan.png'),
     },
   ],
-  player1: {},
+  player1: null,
   player2: {},
   isPlayer1Ready: false,
   isPlayer2Ready: false,

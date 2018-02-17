@@ -1,20 +1,29 @@
+/*---------------
+ CHARACTER CONTAINER
+ ------------*/
+
 .character-container {
-  //border: 1px solid orange;
+  border: 1px solid orange;
   position: absolute;
   height: 100%;
   width: 400px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  animation-duration: .5s;
 
   &.player-2 {
     right: 0;
   }
 
+  /*---------------
+    CHARACTER
+  ------------*/
+
   .character {
     height: 400px;
     width: 100%;
-    //border: 3px solid green;
+    border: 3px solid green;
     text-align: center;
     position: relative;
 
@@ -32,22 +41,27 @@
 
     img {
       margin: auto;
-      //border: 1px solid darkred;
+      border: 1px solid darkred;
       height: 400px;
       position: relative;
     }
   }
 
+  /*---------------
+    CONFIRM BUTTON
+   ------------*/
+
   .select-btn-container {
-    //border: 1px solid blue;
+    border: 1px solid blue;
     position: absolute;
     width: 100%;
-    margin-top: 220px;
+    margin-top: 290px;
     text-align: center;
+    z-index: 5 !important;
 
     .select-btn {
       background: transparent;
-      position: relative;
+      position: relative !important;
       border: 2px solid #440000;
       border-radius: 14px;
       padding: 10px 15px;
@@ -55,12 +69,28 @@
       color: #440000;
       font-size: 30px;
       cursor: pointer;
-      z-index: 3;
+      z-index: 6 !important;
 
       &:hover {
         background: #440000;
         color: #666666;
       }
+    }
+  }
+
+  /*---------------
+    CHARACTER - DISPLAY NAME
+   ------------*/
+
+  .display-name-container {
+    border-bottom: 2px solid black;
+    position: absolute;
+    width: 100%;
+    margin-top: 290px;
+    text-align: center;
+
+    h1 {
+      font-size: 3em;
     }
   }
 }

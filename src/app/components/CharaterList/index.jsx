@@ -17,33 +17,59 @@ class CharacterList extends React.Component {
     }
   }
 
-  renderList() {
+  renderLogo = () => {
+    return (
+      <div className="logo-container animated rotateIn">
+        <img src={require('../../../img/logo.png')} alt="dragon ball"/>
+      </div>
+    )
+  }
+
+  renderCharacterList() {
     const { dbz } = this.props;
 
-    return dbz.characters.map((character) => {
-      // const itemClassName = activeItem && activeItem.title === character.title;
+    return (
+      <div className="character-list">
+        {dbz.characters.map((character) => {
+          // const itemClassName = activeItem && activeItem.title === character.title;
+          return (
+            <div
+              key={character.name}
+              className={`character ${!character.icon && 'space'}`}
+              onClick={this.handleSelectCharacter(character)}
+            >
+              <img src={character.icon} alt={character.name}/>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
 
-      return (
-        <div className={`character ${!character.icon && 'space'}`} key={character.name} onClick={this.handleSelectCharacter(character)}>
-          <img src={character.icon} alt={character.name} />
+  renderHeadingMessage = () => {
+    const { dbz } = this.props
+
+    return (
+      <div>
+        {!dbz.isPlayer1Ready ? (
+        <div className={`heading-container animated ${!dbz.isPlayer1Ready && 'bounce'}`}>
+          <h1>Select Player One</h1>
         </div>
-      )
-    })
+        ) : (
+          <div className={`heading-container animated ${!dbz.isPlayer2Ready ? 'bounceInUp' : 'fadeOutUp'}`}>
+            <h1>Select Player Two</h1>
+          </div>
+        )}
+      </div>
+    )
   }
 
   render() {
-    console.log('this.props.dbz', this.props.dbz)
     return (
       <div className="character-list-container animated bounceInUp">
-        <div className="logo-container animated rotateIn">
-          <img src={require('../../../img/logo.png')} alt=""/>
-        </div>
-        <div className="character-list">
-          {this.renderList()}
-        </div>
-        <div className="heading-container animated bounce">
-          <h1>Select Character</h1>
-        </div>
+        {this.renderLogo()}
+        {this.renderCharacterList()}
+        {this.renderHeadingMessage()}
       </div>
     )
   }

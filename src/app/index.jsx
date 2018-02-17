@@ -22,16 +22,24 @@ class App extends React.Component {
     const { dbz } = this.props
     return (
       <div>
-        <SelectedCharacter
-          player={dbz.player1}
-          className="character-container"
-          onConfirm={this.handleConfirmPlayerOne()}
-        />
+        {dbz.player1 && (
+          <SelectedCharacter
+            player={dbz.player1}
+            animatedButton="bounceInLeft"
+            animatedButtonOut="fadeOutUp"
+            animatedName="bounceInLeft"
+            className="character-container animated fadeInLeft"
+            onConfirm={this.handleConfirmPlayerOne()}
+          />
+        )}
         <CharacterList/>
         {dbz.isPlayer1Ready && (
           <SelectedCharacter
             player={dbz.player2}
-            className="character-container player-2"
+            animatedButton="bounceInRight"
+            animatedButtonOut="fadeOutUp"
+            animatedName="bounceInRight"
+            className="character-container player-2 animated fadeInLeft"
             onConfirm={this.handleConfirmPlayerTwo()}
           />
         )}

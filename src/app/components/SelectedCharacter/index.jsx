@@ -5,24 +5,46 @@ import { actions } from '../../reducer'
 import './style.scss'
 
 class SelectedCharacter extends React.Component {
-  handleConfirmPlayerOne = () => {
-    const { actions } = this.props
+  renderPLayerImage = () => {
+    const { player } = this.props
+    return (
+      <div className="character">
+        <img src={player.full} alt={player.name}/>
+      </div>
+    )
+  }
 
-    actions.confirmPlayerOne()
+  renderPlayerName = () => {
+    const { player, animatedName, dbz } = this.props
+    if (dbz.isPlayer1Ready) {
+      return (
+        <div className={`display-name-container animated ${animatedName}`}>
+          <h1>{player.name}</h1>
+        </div>
+      )
+    }
+
+    return null
+  }
+
+  renderConfirmButton = () => {
+    const { onConfirm, dbz, animatedButton, animatedButtonOut } = this.props
+    return (
+      <div className={`select-btn-container animated ${!dbz.isPlayer1Ready ? animatedButton : animatedButtonOut}`}>
+        <button className="select-btn" onClick={onConfirm}>
+          Select
+        </button>
+      </div>
+    )
   }
 
   render() {
-    const { player, onConfirm, dbz, className } = this.props
+    const { className } = this.props
     return (
       <div className={className}>
-        <div className="character">
-          <img src={player.full} alt={player.name}/>
-        </div>
-        <div className="select-btn-container">
-          <button className="select-btn" onClick={onConfirm}>
-            Select
-          </button>
-        </div>
+        {this.renderPLayerImage()}
+        {this.renderPlayerName()}
+        {this.renderConfirmButton()}
       </div>
     )
   }

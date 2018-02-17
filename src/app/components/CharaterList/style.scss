@@ -17,7 +17,9 @@
   }
 
   .heading-container {
-    //border: 1px solid orange;
+    border: 1px solid orange;
+    position: relative;
+    top: 0;
     text-align: center;
 
     h1 {
