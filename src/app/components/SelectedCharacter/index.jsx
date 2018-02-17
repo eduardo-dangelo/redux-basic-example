@@ -9,17 +9,17 @@ class SelectedCharacter extends React.Component {
     const { player } = this.props
     return (
       <div className="character">
-        <img src={player.full} alt={player.name}/>
+        <img src={player.character.full} alt={player.character.name}/>
       </div>
     )
   }
 
   renderPlayerName = () => {
     const { player, animatedName, dbz } = this.props
-    if (dbz.isPlayer1Ready) {
+    if (player.isPlayerReady) {
       return (
         <div className={`display-name-container animated ${animatedName}`}>
-          <h1>{player.name}</h1>
+          <h1>{player.character.name}</h1>
         </div>
       )
     }
@@ -28,9 +28,9 @@ class SelectedCharacter extends React.Component {
   }
 
   renderConfirmButton = () => {
-    const { onConfirm, dbz, animatedButton, animatedButtonOut } = this.props
+    const { onConfirm, dbz, animatedButton, animatedButtonOut, player } = this.props
     return (
-      <div className={`select-btn-container animated ${!dbz.isPlayer1Ready ? animatedButton : animatedButtonOut}`}>
+      <div className={`select-btn-container animated ${!player.isPlayerReady ? animatedButton : animatedButtonOut}`}>
         <button className="select-btn" onClick={onConfirm}>
           Select
         </button>

@@ -22,7 +22,7 @@ class App extends React.Component {
     const { dbz } = this.props
     return (
       <div>
-        {dbz.player1 && (
+        {dbz.player1.character && (
           <SelectedCharacter
             player={dbz.player1}
             animatedButton="bounceInLeft"
@@ -33,13 +33,13 @@ class App extends React.Component {
           />
         )}
         <CharacterList/>
-        {dbz.isPlayer1Ready && (
+        {dbz.player1.isPlayerReady && dbz.player2.character && (
           <SelectedCharacter
             player={dbz.player2}
             animatedButton="bounceInRight"
             animatedButtonOut="fadeOutUp"
             animatedName="bounceInRight"
-            className="character-container player-2 animated fadeInLeft"
+            className="character-container player-2 animated fadeInRight"
             onConfirm={this.handleConfirmPlayerTwo()}
           />
         )}

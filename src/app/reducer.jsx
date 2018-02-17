@@ -2,8 +2,6 @@ const SELECT_PLAYER_ONE = 'dbz/SELECT_PLAYER_ONE'
 const SELECT_PLAYER_TWO = 'dbz/SELECT_PLAYER_TWO'
 const CONFIRM_PLAYER_ONE = 'dbz/CONFIRM_PLAYER_ONE'
 const CONFIRM_PLAYER_TWO = 'dbz/CONFIRM_PLAYER_TWO'
-const EDIT_PLAYER_ONE = 'dbz/EDIT_PLAYER_ONE'
-const EDIT_PLAYER_TWO = 'dbz/EDIT_PLAYER_TWO'
 const FINISH = 'dbz/FINISH'
 
 const initialState = {
@@ -57,10 +55,14 @@ const initialState = {
       full: require('../img/full_gohan.png'),
     },
   ],
-  player1: null,
-  player2: {},
-  isPlayer1Ready: false,
-  isPlayer2Ready: false,
+  player1: {
+    character: null,
+    isPlayerReady: false,
+  },
+  player2: {
+    character: null,
+    isPlayerReady: false
+  },
   finish: false,
 }
 
@@ -69,32 +71,34 @@ export function reducer(state = initialState, action) {
     case SELECT_PLAYER_ONE:
       return {
         ...state,
-        player1: action.payload,
+        player1: {
+          ...state.player1,
+          character: action.payload
+        }
       };
     case CONFIRM_PLAYER_ONE:
       return {
         ...state,
-        isPlayer1Ready: true,
+        player1: {
+          ...state.player1,
+          isPlayerReady: true,
+        }
       };
     case SELECT_PLAYER_TWO:
       return {
         ...state,
-        player2: action.payload,
+        player2: {
+          ...state.player2,
+          character: action.payload
+        }
       };
     case CONFIRM_PLAYER_TWO:
       return {
         ...state,
-        isPlayer2Ready: true,
-      };
-    case EDIT_PLAYER_ONE:
-      return {
-        ...state,
-        isPlayer1Ready: false,
-      };
-    case EDIT_PLAYER_TWO:
-      return {
-        ...state,
-        isPlayer2Ready: false,
+        player2: {
+          ...state.player2,
+          isPlayerReady: true,
+        }
       };
     case FINISH:
       return {
@@ -110,8 +114,6 @@ const selectPlayerOne = (character) => ({ type: SELECT_PLAYER_ONE, payload: char
 const selectPlayerTwo = (character) => ({ type: SELECT_PLAYER_TWO, payload: character })
 const confirmPlayerOne = () => ({ type: CONFIRM_PLAYER_ONE })
 const confirmPlayerTwo = () => ({ type: CONFIRM_PLAYER_TWO })
-const editPlayerOne = () => ({ type: EDIT_PLAYER_ONE })
-const editPlayerTwo = () => ({ type: EDIT_PLAYER_TWO })
 const finish = () => ({ type: FINISH })
 
 export const actions = {
@@ -119,7 +121,5 @@ export const actions = {
   selectPlayerTwo,
   confirmPlayerOne,
   confirmPlayerTwo,
-  editPlayerOne,
-  editPlayerTwo,
   finish,
 }

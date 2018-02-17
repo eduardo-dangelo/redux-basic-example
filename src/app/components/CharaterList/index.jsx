@@ -8,11 +8,11 @@ class CharacterList extends React.Component {
   handleSelectCharacter = (character) => () => {
     const { dbz, actions } = this.props
 
-    if (!dbz.isPlayer1Ready) {
+    if (!dbz.player1.isPlayerReady) {
       actions.selectPlayerOne(character)
     } 
     
-    if (dbz.isPlayer1Ready && !dbz.isPlayer2Ready) {
+    if (dbz.player1.isPlayerReady && !dbz.player2.isPlayerReady) {
       actions.selectPlayerTwo(character)
     }
   }
@@ -51,12 +51,12 @@ class CharacterList extends React.Component {
 
     return (
       <div>
-        {!dbz.isPlayer1Ready ? (
-        <div className={`heading-container animated ${!dbz.isPlayer1Ready && 'bounce'}`}>
+        {!dbz.player1.isPlayerReady ? (
+        <div className={`heading-container animated ${!dbz.player1.isPlayerReady && 'bounce'}`}>
           <h1>Select Player One</h1>
         </div>
         ) : (
-          <div className={`heading-container animated ${!dbz.isPlayer2Ready ? 'bounceInUp' : 'fadeOutUp'}`}>
+          <div className={`heading-container animated ${!dbz.player2.isPlayerReady ? 'bounceInUp' : 'fadeOutUp'}`}>
             <h1>Select Player Two</h1>
           </div>
         )}
