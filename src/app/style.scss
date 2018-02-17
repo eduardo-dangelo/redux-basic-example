@@ -1,0 +1,66 @@
+/*---------
+  FONTS
+ -------*/
+
+@font-face {
+  font-family: Saiyan;
+  src: url(../fonts/Saiyan-Sans.ttf);
+}
+
+@font-face {
+  font-family: Dimitri;
+  src: url(../fonts/DIMIS___.TTF);
+}
+
+/*---------
+  BODY
+ -------*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Dimitri;
+  background: #666666;
+}
+
+/*---------
+  HEADINGS
+ -------*/
+
+h1 {
+  font-size: 5em;
+  //color: #440000;
+  margin: 15px 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 15px 0;
+}
+
+/*-----------
+  LOGO
+ ------*/
+
+.logo-container {
+  //border: 2px solid orange;
+  width: 150px;
+  margin: 15px auto;
+  animation-duration: 1s;
+
+  img {
+    width: 100%;
+  }
+}
+
+/*---------
+  BUTTONS
+ -------*/
+
+.action-btn {
+  border: 2px solid black;
+  border-radius: 24px;
+  background: transparent;
+  padding: 5px 50px;
+  font-size: 1.5em;
+}

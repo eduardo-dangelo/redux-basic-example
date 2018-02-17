@@ -2,6 +2,7 @@ const SELECT_PLAYER_ONE = 'dbz/SELECT_PLAYER_ONE'
 const SELECT_PLAYER_TWO = 'dbz/SELECT_PLAYER_TWO'
 const CONFIRM_PLAYER_ONE = 'dbz/CONFIRM_PLAYER_ONE'
 const CONFIRM_PLAYER_TWO = 'dbz/CONFIRM_PLAYER_TWO'
+const START = 'dbz/START'
 const FINISH = 'dbz/FINISH'
 
 const initialState = {
@@ -63,6 +64,7 @@ const initialState = {
     character: null,
     isPlayerReady: false
   },
+  start: false,
   finish: false,
 }
 
@@ -100,6 +102,11 @@ export function reducer(state = initialState, action) {
           isPlayerReady: true,
         }
       };
+    case START:
+      return {
+        ...state,
+        start: true,
+      };
     case FINISH:
       return {
         ...state,
@@ -114,6 +121,7 @@ const selectPlayerOne = (character) => ({ type: SELECT_PLAYER_ONE, payload: char
 const selectPlayerTwo = (character) => ({ type: SELECT_PLAYER_TWO, payload: character })
 const confirmPlayerOne = () => ({ type: CONFIRM_PLAYER_ONE })
 const confirmPlayerTwo = () => ({ type: CONFIRM_PLAYER_TWO })
+const start = () => ({ type: START })
 const finish = () => ({ type: FINISH })
 
 export const actions = {
@@ -121,5 +129,6 @@ export const actions = {
   selectPlayerTwo,
   confirmPlayerOne,
   confirmPlayerTwo,
+  start,
   finish,
 }

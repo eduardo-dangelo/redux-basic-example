@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { actions } from '../../reducer'
+import { actions } from '../../../../reducer'
 import './style.scss'
 
 class CharacterList extends React.Component {
@@ -20,7 +20,7 @@ class CharacterList extends React.Component {
   renderLogo = () => {
     return (
       <div className="logo-container animated rotateIn">
-        <img src={require('../../../img/logo.png')} alt="dragon ball"/>
+        <img src={require('../../../../../img/logo.png')} alt="dragon ball"/>
       </div>
     )
   }

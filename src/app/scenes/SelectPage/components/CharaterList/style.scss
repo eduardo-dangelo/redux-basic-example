@@ -4,17 +4,9 @@
   bottom: 140px;
   width: 100%;
   perspective: 1200px;
+  z-index: 2;
 
-  .logo-container {
-    //border: 2px solid orange;
-    width: 150px;
-    margin: 15px auto;
-    animation-duration: 1s;
 
-    img {
-      width: 100%;
-    }
-  }
 
   .heading-container {
     //border: 1px solid orange;

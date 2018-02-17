@@ -1,10 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { actions } from '../../reducer'
+import { actions } from '../../../../reducer'
 import './style.scss'
 
 class SelectedCharacter extends React.Component {
+  renderPlayerHero = () => {
+    const { player, animatedHero } = this.props
+    if (player.isPlayerReady) {
+      return (
+        <div className={`character-hero-container animated ${player.isPlayerReady && animatedHero}`}>
+          <img src={player.character.hero} alt={player.character.name}/>
+        </div>
+      )
+    }
+  }
+
   renderPLayerImage = () => {
     const { player } = this.props
     return (
@@ -15,7 +26,7 @@ class SelectedCharacter extends React.Component {
   }
 
   renderPlayerName = () => {
-    const { player, animatedName, dbz } = this.props
+    const { player, animatedName } = this.props
     if (player.isPlayerReady) {
       return (
         <div className={`display-name-container animated ${animatedName}`}>
@@ -42,6 +53,7 @@ class SelectedCharacter extends React.Component {
     const { className } = this.props
     return (
       <div className={className}>
+        {this.renderPlayerHero()}
         {this.renderPLayerImage()}
         {this.renderPlayerName()}
         {this.renderConfirmButton()}
