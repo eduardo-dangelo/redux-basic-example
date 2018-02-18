@@ -95,33 +95,4 @@
       font-size: 3em;
     }
   }
-
-  /*---------------
-  CHARACTER - HERO
- ------------*/
-
-  .character-hero-container {
-    border-bottom: 5px solid black;
-    position: absolute;
-    top: 20px;
-    width: 450px;
-    height: 500px;
-    //background: orange;
-    z-index: 1;
-
-    img {
-      bottom: 0;
-      height: 500px;
-    }
-
-    &.player1 {
-      left: 160px;
-      text-align: right;
-    }
-
-    &.player2 {
-      right: 160px;
-      text-align: left;
-    }
-  }
 }

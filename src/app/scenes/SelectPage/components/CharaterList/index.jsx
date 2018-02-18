@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../../../reducer'
@@ -15,6 +16,16 @@ class CharacterList extends React.Component {
     if (dbz.player1.isPlayerReady && !dbz.player2.isPlayerReady) {
       actions.selectPlayerTwo(character)
     }
+  }
+
+  handleStartFight = () => () => {
+    const { actions } = this.props
+
+    actions.finish()
+
+    setTimeout(() => (
+      actions.loadFight()
+    ), 1000)
   }
 
   renderLogo = () => {
@@ -64,12 +75,30 @@ class CharacterList extends React.Component {
     )
   }
 
+  renderStartFightButton = () => {
+    const { dbz } = this.props
+
+    if (dbz.player2.isPlayerReady) {
+      return (
+        <div className="heading-container">
+          <Button className="action-btn" onClick={this.handleStartFight()}>
+            Start Fight
+          </Button>
+        </div>
+      )
+    }
+
+    return null
+  }
+
   render() {
+    const { dbz } = this.props
     return (
-      <div className="character-list-container animated bounceInUp">
+      <div className={`character-list-container animated ${!dbz.finish ? 'bounceInUp' : 'bounceOutDown'}`}>
         {this.renderLogo()}
         {this.renderCharacterList()}
         {this.renderHeadingMessage()}
+        {this.renderStartFightButton()}
       </div>
     )
   }

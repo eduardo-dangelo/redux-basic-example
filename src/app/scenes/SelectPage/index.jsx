@@ -30,6 +30,8 @@ class SelectPage extends React.Component {
               animatedButton="bounceInLeft"
               animatedButtonOut="fadeOutUp"
               animatedName="bounceInLeft"
+              animatedNameOut="bounceOutLeft"
+              animatedCharacterOut="fadeOut"
               animatedHero="player1 fadeIn"
               className="character-container animated fadeInLeft"
               onConfirm={this.handleConfirmPlayerOne()}
@@ -42,6 +44,8 @@ class SelectPage extends React.Component {
               animatedButton="bounceInRight"
               animatedButtonOut="fadeOutUp"
               animatedName="bounceInRight"
+              animatedNameOut="bounceOutRight"
+              animatedCharacterOut="fadeOut"
               animatedHero="player2 fadeIn"
               className="character-container player-2 animated fadeInRight"
               onConfirm={this.handleConfirmPlayerTwo()}

@@ -17,19 +17,19 @@ class SelectedCharacter extends React.Component {
   }
 
   renderPLayerImage = () => {
-    const { player } = this.props
+    const { player , dbz, animatedCharacterOut } = this.props
     return (
-      <div className="character">
+      <div className={`character animated ${player.isPlayerReady && 'pulse'} ${dbz.finish && animatedCharacterOut}`}>
         <img src={player.character.full} alt={player.character.name}/>
       </div>
     )
   }
 
   renderPlayerName = () => {
-    const { player, animatedName } = this.props
+    const { player, animatedName, animatedNameOut, dbz } = this.props
     if (player.isPlayerReady) {
       return (
-        <div className={`display-name-container animated ${animatedName}`}>
+        <div className={`display-name-container animated ${!dbz.finish ? animatedName : animatedNameOut}`}>
           <h1>{player.character.name}</h1>
         </div>
       )
@@ -42,7 +42,7 @@ class SelectedCharacter extends React.Component {
     const { onConfirm, dbz, animatedButton, animatedButtonOut, player } = this.props
     return (
       <div className={`select-btn-container animated ${!player.isPlayerReady ? animatedButton : animatedButtonOut}`}>
-        <button className="select-btn" onClick={onConfirm}>
+        <button className="action-btn" onClick={onConfirm}>
           Select
         </button>
       </div>
@@ -53,7 +53,7 @@ class SelectedCharacter extends React.Component {
     const { className } = this.props
     return (
       <div className={className}>
-        {this.renderPlayerHero()}
+        {/*{this.renderPlayerHero()}*/}
         {this.renderPLayerImage()}
         {this.renderPlayerName()}
         {this.renderConfirmButton()}

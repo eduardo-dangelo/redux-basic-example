@@ -4,6 +4,7 @@ const CONFIRM_PLAYER_ONE = 'dbz/CONFIRM_PLAYER_ONE'
 const CONFIRM_PLAYER_TWO = 'dbz/CONFIRM_PLAYER_TWO'
 const START = 'dbz/START'
 const FINISH = 'dbz/FINISH'
+const LOAD_FIGHT = 'dbz/LOAD_FIGHT'
 
 const initialState = {
   characters: [
@@ -66,6 +67,7 @@ const initialState = {
   },
   start: false,
   finish: false,
+  loadFight: false,
 }
 
 export function reducer(state = initialState, action) {
@@ -112,6 +114,11 @@ export function reducer(state = initialState, action) {
         ...state,
         finish: true,
       };
+    case LOAD_FIGHT:
+      return {
+        ...state,
+        loadFight: true,
+      };
     default:
       return state;
   }
@@ -123,6 +130,7 @@ const confirmPlayerOne = () => ({ type: CONFIRM_PLAYER_ONE })
 const confirmPlayerTwo = () => ({ type: CONFIRM_PLAYER_TWO })
 const start = () => ({ type: START })
 const finish = () => ({ type: FINISH })
+const loadFight = () => ({ type: LOAD_FIGHT })
 
 export const actions = {
   selectPlayerOne,
@@ -131,4 +139,5 @@ export const actions = {
   confirmPlayerTwo,
   start,
   finish,
+  loadFight,
 }
