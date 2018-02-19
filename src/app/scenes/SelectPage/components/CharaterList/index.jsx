@@ -21,7 +21,7 @@ class CharacterList extends React.Component {
   handleStartFight = () => () => {
     const { actions } = this.props
 
-    actions.finish()
+    actions.finishSelection()
 
     setTimeout(() => (
       actions.loadFight()

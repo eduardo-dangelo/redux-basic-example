@@ -10,18 +10,27 @@ import './style.scss'
 class App extends React.Component {
 
   render() {
+    const { dbz } = this.props
     return (
       <div>
-        <StartPage/>
-        <SelectPage/>
-        <PreFightPage/>
+        {!dbz.start && (
+          <StartPage/>
+        )}
+        {dbz.start && !dbz.loadFight && (
+          <SelectPage/>
+        )}
+        {dbz.finishSelection && dbz.loadFight && (
+          <PreFightPage/>
+        )}
       </div>
     )
   }
 }
 
 export default connect(
-  null,
+  (state) => ({
+    dbz: state.dbz,
+  }),
   (dispatch) => ({
     actions: bindActionCreators(actions, dispatch),
   }),
