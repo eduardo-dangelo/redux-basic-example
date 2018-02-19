@@ -8,20 +8,43 @@ import PreFightPage from './scenes/PreFightPage'
 import './style.scss'
 
 class App extends React.Component {
+  renderStartPage = () => {
+    const { dbz } = this.props
+
+    if (!dbz.start) {
+      return <StartPage/>
+    }
+
+    return null
+  }
+
+  renderSelectPage = () => {
+    const { dbz } = this.props
+
+    if (dbz.start && !dbz.loadFight) {
+      return <SelectPage/>
+    }
+
+    return null
+  }
+
+  renderPreFightPage = () => {
+    const { dbz } = this.props
+
+    if (dbz.finishSelection && dbz.loadFight) {
+      return <PreFightPage/>
+    }
+
+    return null
+  }
 
   render() {
     const { dbz } = this.props
     return (
       <div>
-        {!dbz.start && (
-          <StartPage/>
-        )}
-        {dbz.start && !dbz.loadFight && (
-          <SelectPage/>
-        )}
-        {dbz.finishSelection && dbz.loadFight && (
-          <PreFightPage/>
-        )}
+        {this.renderStartPage()}
+        {this.renderSelectPage()}
+        {this.renderPreFightPage()}
       </div>
     )
   }

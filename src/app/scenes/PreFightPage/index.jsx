@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../reducer'
+import LogoAnimated from '../../components/LogoAnimated'
 import './style.scss'
 
 class PreFightPage extends React.Component {
@@ -37,9 +38,7 @@ class PreFightPage extends React.Component {
             </div>
           </div>
           <div className="logo-vs-container">
-            <div className={`logo-container animated ${!fadeOut ? 'rotateIn' : 'rotateOut'}`}>
-              <img src={require('../../../img/logo.png')} alt="dbz"/>
-            </div>
+            <LogoAnimated animation={!fadeOut ? 'rotateIn' : 'rotateOut'}/>
             <div className={`vs-container animated ${!fadeOut ? 'bounceInUp' : 'bounceOutDown'}`}>
               <img src={require('../../../img/vs.png')} alt="vs"/>
             </div>

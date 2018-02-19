@@ -3,11 +3,13 @@ import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../reducer'
+import LogoAnimated from '../../components/LogoAnimated'
 import './style.scss'
 
 class StartPage extends React.Component {
   state = {
     start: false,
+    logo: false,
   }
 
   handleStartApplication = () => () => {
@@ -30,9 +32,7 @@ class StartPage extends React.Component {
       return (
         <div className="start-page">
           <div className={`start-page-container animated ${!start ? 'bounceInUp' : 'bounceOutDown' }`}>
-            <div className="logo-container animated rotateIn">
-              <img src={require('../../../img/logo.png')} alt="dragon ball"/>
-            </div>
+            <LogoAnimated animation="rotateIn"/>
             <h1>Dragon Ball</h1>
             <h2 className=" animated bounce">Fight game menu</h2>
             <Button className="action-btn animated zoomIn" onClick={this.handleStartApplication()}>
