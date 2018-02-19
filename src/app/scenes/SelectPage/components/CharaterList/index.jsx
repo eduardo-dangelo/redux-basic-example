@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../../../reducer'
 import LogoAnimated from '../../../../components/LogoAnimated'
+import ButtonAnimated from '../../../../components/ButtonAnimated'
 import './style.scss'
 
 class CharacterList extends React.Component {
@@ -80,9 +81,11 @@ class CharacterList extends React.Component {
     if (dbz.player2.isPlayerReady) {
       return (
         <div className="heading-container">
-          <Button className="action-btn" onClick={this.handleStartFight()}>
-            Start Fight
-          </Button>
+          <ButtonAnimated
+            animation={!dbz.finishSelection ? 'bounceInUp' : 'zoomOut'}
+            onClick={this.handleStartFight()}
+            content={'Start Fight'}
+          />
         </div>
       )
     }

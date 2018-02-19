@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../reducer'
 import LogoAnimated from '../../components/LogoAnimated'
+import ButtonAnimated from '../../components/ButtonAnimated'
 import './style.scss'
 
 class StartPage extends React.Component {
@@ -35,9 +36,11 @@ class StartPage extends React.Component {
             <LogoAnimated animation="rotateIn"/>
             <h1>Dragon Ball</h1>
             <h2 className=" animated bounce">Fight game menu</h2>
-            <Button className="action-btn animated zoomIn" onClick={this.handleStartApplication()}>
-              Start
-            </Button>
+            <ButtonAnimated
+              animation={!start ? 'zoomIn' : 'zoomOut'}
+              onClick={this.handleStartApplication()}
+              content={'Start'}
+            />
           </div>
         </div>
       )
