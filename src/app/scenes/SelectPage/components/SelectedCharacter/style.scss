@@ -11,6 +11,21 @@
   flex-wrap: wrap;
   align-items: center;
   animation-duration: .5s;
+  margin-left: 0;
+  margin-right: 0;
+  top: 0;
+
+  &.get-closer-player1 {
+    margin-left: 150px;
+    top: -40px;
+    transition: 1.5s ease-out;
+  }
+
+  &.get-closer-player2 {
+    margin-right: 150px;
+    top: -40px;
+    transition: 1.5s ease-out;
+  }
 
   &.player-2 {
     right: 0;
@@ -84,12 +99,13 @@
    ------------*/
 
   .display-name-container {
-    border-bottom: 2px solid black;
+    //border-bottom: 2px solid black;
     position: absolute;
     width: 100%;
     margin-top: 290px;
     text-align: center;
     z-index: 2;
+    animation-duration: .8s;
 
     h1 {
       font-size: 3em;

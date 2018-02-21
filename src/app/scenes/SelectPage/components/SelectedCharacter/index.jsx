@@ -29,9 +29,9 @@ class SelectedCharacter extends React.Component {
     const { player, animatedName, animatedNameOut, dbz } = this.props
     if (player.isPlayerReady) {
       return (
-        <div className={`display-name-container animated ${!dbz.finish ? animatedName : animatedNameOut}`}>
-          <h1>{player.character.name}</h1>
-        </div>
+          <div className={`display-name-container animated ${!dbz.finish ? animatedName : animatedNameOut}`}>
+            <h1>{player.character.name}</h1>
+          </div>
       )
     }
 

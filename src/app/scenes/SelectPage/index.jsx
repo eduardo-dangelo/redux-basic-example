@@ -29,11 +29,11 @@ class SelectPage extends React.Component {
               player={dbz.player1}
               animatedButton="bounceInLeft"
               animatedButtonOut="fadeOutUp"
-              animatedName="bounceInLeft"
+              animatedName="fadeInUp"
               animatedNameOut="bounceOutLeft"
               animatedCharacterOut="fadeOut"
               animatedHero="player1 fadeIn"
-              className="character-container animated fadeInLeft"
+              className={`${dbz.player2.isPlayerReady && 'get-closer-player1'} character-container animated fadeInLeft`}
               onConfirm={this.handleConfirmPlayerOne()}
             />
           )}
@@ -43,11 +43,11 @@ class SelectPage extends React.Component {
               player={dbz.player2}
               animatedButton="bounceInRight"
               animatedButtonOut="fadeOutUp"
-              animatedName="bounceInRight"
+              animatedName="fadeInUp"
               animatedNameOut="bounceOutRight"
               animatedCharacterOut="fadeOut"
               animatedHero="player2 fadeIn"
-              className="character-container player-2 animated fadeInRight"
+              className={`${dbz.player2.isPlayerReady && 'get-closer-player2'} character-container player-2 animated fadeInRight`}
               onConfirm={this.handleConfirmPlayerTwo()}
             />
           )}
