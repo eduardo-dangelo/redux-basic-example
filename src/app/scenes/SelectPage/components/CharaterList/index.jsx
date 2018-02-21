@@ -8,6 +8,23 @@ import ButtonAnimated from '../../../../components/ButtonAnimated'
 import './style.scss'
 
 class CharacterList extends React.Component {
+  state = {
+    hideMenu: false,
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { dbz } = this.props
+    console.log('dbz.player2.isPlayerReady', nextProps.dbz.player2.isPlayerReady)
+
+    if (nextProps.dbz.player2.isPlayerReady) {
+      setTimeout(() => (
+        this.setState({
+          hideMenu: true,
+        })
+      ), 1000)
+    }
+  }
+
   handleSelectCharacter = (character) => () => {
     const { dbz, actions } = this.props
 
@@ -38,15 +55,18 @@ class CharacterList extends React.Component {
 
   renderCharacterList() {
     const { dbz } = this.props;
+    const { hideMenu } = this.state
+    const player1Active = dbz.player1.character && dbz.player1.character.name
+    const player2Active = dbz.player2.character && dbz.player2.character.name
+    console.log('hideMenu', hideMenu)
 
     return (
-      <div className="character-list">
+      <div className={`character-list ${dbz.player2.isPlayerReady && 'animated zoomOutUp'} ${hideMenu && 'hide-menu'}`}>
         {dbz.characters.map((character) => {
-          // const itemClassName = activeItem && activeItem.title === character.title;
           return (
             <div
               key={character.name}
-              className={`character ${!character.icon && 'space'}`}
+              className={`character ${dbz.player1.isPlayerReady ? 'player2' : 'player1'} ${player1Active === character.name && 'active-player1'} ${player2Active === character.name && 'active-player2'}`}
               onClick={this.handleSelectCharacter(character)}
             >
               <img src={character.icon} alt={character.name}/>
@@ -63,11 +83,11 @@ class CharacterList extends React.Component {
     return (
       <div>
         {!dbz.player1.isPlayerReady ? (
-        <div className={`heading-container animated ${!dbz.player1.isPlayerReady && 'bounce'}`}>
+        <div className={`heading-container red animated ${!dbz.player1.isPlayerReady && 'bounce'}`}>
           <h1>Select Player One</h1>
         </div>
         ) : (
-          <div className={`heading-container animated ${!dbz.player2.isPlayerReady ? 'bounceInUp' : 'fadeOutUp'}`}>
+          <div className={`heading-container blue animated ${!dbz.player2.isPlayerReady ? 'bounceInUp' : 'fadeOutUp'}`}>
             <h1>Select Player Two</h1>
           </div>
         )}
@@ -82,7 +102,7 @@ class CharacterList extends React.Component {
       return (
         <div className="heading-container">
           <ButtonAnimated
-            animation={!dbz.finishSelection ? 'bounceInUp' : 'zoomOut'}
+            animation={!dbz.finishSelection ? 'zoomInDown' : 'zoomOut'}
             onClick={this.handleStartFight()}
             content={'Start Fight'}
           />
