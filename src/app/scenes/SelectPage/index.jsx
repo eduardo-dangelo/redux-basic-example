@@ -26,28 +26,26 @@ class SelectPage extends React.Component {
         <div>
           {dbz.player1.character && (
             <SelectedCharacter
+              color="red"
               player={dbz.player1}
-              animatedButton="bounceInLeft"
-              animatedButtonOut="fadeOutUp"
-              animatedName="fadeInUp"
-              animatedNameOut="bounceOutLeft"
-              animatedCharacterOut="fadeOut"
-              animatedHero="player1 fadeIn"
-              className={`${dbz.player2.isPlayerReady && 'get-closer-player1'} character-container animated fadeInLeft`}
+              buttonAnimation={!dbz.player1.isPlayerReady ? 'bounceInLeft' : 'fadeOutUp'}
+              nameAnimation={!dbz.finish ? 'fadeInUp' : 'bounceOutLeft'}
+              isPlayerReady="get-closer-player1"
+              containerAnimation={!dbz.finishSelection ? 'fadeInLeft' : 'fadeOutLeft'}
               onConfirm={this.handleConfirmPlayerOne()}
             />
           )}
           <CharacterList/>
           {dbz.player1.isPlayerReady && dbz.player2.character && (
             <SelectedCharacter
+              color="blue"
               player={dbz.player2}
-              animatedButton="bounceInRight"
-              animatedButtonOut="fadeOutUp"
-              animatedName="fadeInUp"
-              animatedNameOut="bounceOutRight"
-              animatedCharacterOut="fadeOut"
-              animatedHero="player2 fadeIn"
-              className={`${dbz.player2.isPlayerReady && 'get-closer-player2'} character-container player-2 animated fadeInRight`}
+              buttonAnimation={!dbz.player2.isPlayerReady ? 'bounceInRight' : 'fadeOutUp'}
+              nameAnimation={!dbz.finish ? 'fadeInUp' : 'bounceOutRight'}
+              isPlayerReady="get-closer-player2"
+              containerAnimation={!dbz.finishSelection ? 'fadeInRight' : 'fadeOutRight'}
+              className="player-2"
+              isPlayer2={true}
               onConfirm={this.handleConfirmPlayerTwo()}
             />
           )}

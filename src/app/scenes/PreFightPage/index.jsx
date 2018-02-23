@@ -17,11 +17,11 @@ class PreFightPage extends React.Component {
       this.setState({
         fadeOut: true,
       })
-    ), 3000)
+    ), 5000)
 
     setTimeout(() => (
       actions.restart()
-    ), 5000)
+    ), 6000)
   }
 
   renderPreFightPage = () => {
@@ -33,7 +33,7 @@ class PreFightPage extends React.Component {
         <div className="pre-fight-page-container">
           <div className={`character-hero-container player1 animated ${!fadeOut ? 'fadeInLeft' : 'fadeOutLeft'}`}>
             <img src={dbz.player1.character.hero} alt="player 1"/>
-            <div className={`display-name-container animated`}>
+            <div className={`display-name-container red animated`}>
               <h1>{dbz.player1.character.name}</h1>
             </div>
           </div>
@@ -45,7 +45,7 @@ class PreFightPage extends React.Component {
           </div>
           <div className={`character-hero-container player2 animated ${!fadeOut ? 'fadeInRight' : 'fadeOutRight'}`}>
             <img src={dbz.player2.character.hero} alt="player 2"/>
-            <div className={`display-name-container animated`}>
+            <div className={`display-name-container blue animated`}>
               <h1>{dbz.player2.character.name}</h1>
             </div>
           </div>

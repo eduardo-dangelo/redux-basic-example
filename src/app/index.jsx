@@ -41,7 +41,7 @@ class App extends React.Component {
   render() {
     const { dbz } = this.props
     return (
-      <div>
+      <div className="app">
         {this.renderStartPage()}
         {this.renderSelectPage()}
         {this.renderPreFightPage()}

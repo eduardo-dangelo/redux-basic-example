@@ -5,31 +5,20 @@ import { actions } from '../../../../reducer'
 import './style.scss'
 
 class SelectedCharacter extends React.Component {
-  renderPlayerHero = () => {
-    const { player, animatedHero } = this.props
-    if (player.isPlayerReady) {
-      return (
-        <div className={`character-hero-container animated ${player.isPlayerReady && animatedHero}`}>
-          <img src={player.character.hero} alt={player.character.name}/>
-        </div>
-      )
-    }
-  }
-
   renderPLayerImage = () => {
-    const { player , dbz, animatedCharacterOut } = this.props
+    const { player, isPlayer2 } = this.props
     return (
-      <div className={`character animated ${player.isPlayerReady && 'pulse'} ${dbz.finish && animatedCharacterOut}`}>
+      <div className={`character ${isPlayer2 && 'p2'} animated ${player.isPlayerReady && 'pulse'}`}>
         <img src={player.character.full} alt={player.character.name}/>
       </div>
     )
   }
 
   renderPlayerName = () => {
-    const { player, animatedName, animatedNameOut, dbz } = this.props
+    const { player, color, nameAnimation } = this.props
     if (player.isPlayerReady) {
       return (
-          <div className={`display-name-container animated ${!dbz.finish ? animatedName : animatedNameOut}`}>
+          <div className={`display-name-container ${color} animated ${nameAnimation}`}>
             <h1>{player.character.name}</h1>
           </div>
       )
@@ -39,9 +28,9 @@ class SelectedCharacter extends React.Component {
   }
 
   renderConfirmButton = () => {
-    const { onConfirm, dbz, animatedButton, animatedButtonOut, player } = this.props
+    const { onConfirm, buttonAnimation} = this.props
     return (
-      <div className={`select-btn-container animated ${!player.isPlayerReady ? animatedButton : animatedButtonOut}`}>
+      <div className={`select-btn-container animated ${buttonAnimation}`}>
         <button className="action-btn" onClick={onConfirm}>
           Select
         </button>
@@ -50,10 +39,14 @@ class SelectedCharacter extends React.Component {
   }
 
   render() {
-    const { className } = this.props
+    const { containerAnimation, isPlayerReady, dbz, className } = this.props
     return (
-      <div className={className}>
-        {/*{this.renderPlayerHero()}*/}
+      <div
+        className={`character-container animated
+          ${dbz.player2.isPlayerReady && isPlayerReady}
+          ${containerAnimation} ${className}`
+        }
+      >
         {this.renderPLayerImage()}
         {this.renderPlayerName()}
         {this.renderConfirmButton()}

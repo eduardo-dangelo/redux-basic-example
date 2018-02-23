@@ -6,9 +6,15 @@ class LogoAnimated extends React.Component {
   }
 
   handleClickLogo = () => () => {
-    this.setState(prevState => ({
-      logo: !prevState.logo,
-    }))
+    this.setState({
+      logo: true,
+    })
+
+    setTimeout(() => (
+      this.setState({
+        logo: false,
+      })
+    ), 1000)
   }
 
   render() {
@@ -16,7 +22,7 @@ class LogoAnimated extends React.Component {
     const { logo } = this.state
     return (
       <div className={`animated ${animation}`}>
-        <div onClick={this.handleClickLogo()} className={`logo-container animated ${logo ? 'tada' : 'jello'}`}>
+        <div onClick={this.handleClickLogo()} className={`logo-container animated ${logo && 'tada'}`}>
           <img src={require('../../../img/logo.png')} alt="dragon ball"/>
         </div>
       </div>

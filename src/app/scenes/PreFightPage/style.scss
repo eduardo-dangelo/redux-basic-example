@@ -7,7 +7,7 @@
   height: 100%;
   position: absolute;
   display: flex;
-  overflow: hidden;
+  //overflow: hidden;
   align-items: center;
 
   /*---------------
@@ -15,26 +15,54 @@ CHARACTER - HERO
 ------------*/
 
   .character-hero-container {
-    border-bottom: 5px solid black;
+    //border: 1px solid black;
     position: absolute;
-    top: 20px;
+    top: 40px;
     width: 450px;
-    height: 500px;
+    height: 460px;
     z-index: 1;
 
+    .display-name-container {
+      position: absolute;
+      //border: 1px solid green;
+      width: 100%;
+      bottom: -120px;
+
+      &.blue h1 {
+        text-shadow: 0 0 6px rgba(0,0,255,0.4), 0 24px 38px rgba(0,0,0,0.6);;
+      }
+
+      &.red h1{
+        text-shadow: 0 0 6px rgba(255,0,0,0.6), 0 24px 38px rgba(0,0,0,0.6);
+      }
+    }
+
     img {
+      //border: 1px solid red;
       bottom: 0;
-      height: 500px;
+      position: absolute;
+      height: 100%;
     }
 
     &.player1 {
-      left: 0px;
-      text-align: right;
+      left: 120px;
+      //text-align: right;
+      text-align: center;
+
+      img {
+        right: 0;
+      }
     }
 
     &.player2 {
-      right: 0px;
-      text-align: left;
+      right: 120px;
+      //text-align: left;
+      text-align: center;
+
+      img {
+        left: 0;
+        transform: rotateY(180deg);
+      }
     }
   }
 

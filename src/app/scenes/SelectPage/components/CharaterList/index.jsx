@@ -48,8 +48,9 @@ class CharacterList extends React.Component {
   }
 
   renderLogo = () => {
+    const { dbz } = this.props
     return (
-      <LogoAnimated animation="rotateIn" />
+      <LogoAnimated animation={!dbz.finishSelection ? 'rotateIn' : 'rotateOut'} />
     )
   }
 

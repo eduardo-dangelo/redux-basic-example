@@ -14,17 +14,18 @@
   margin-left: 0;
   margin-right: 0;
   top: 0;
+  z-index: 3;
 
   &.get-closer-player1 {
     margin-left: 150px;
     top: -40px;
-    transition: 1.5s ease-out;
+    transition: 1.5s ease;
   }
 
   &.get-closer-player2 {
     margin-right: 150px;
     top: -40px;
-    transition: 1.5s ease-out;
+    transition: 1.5s ease;
   }
 
   &.player-2 {
@@ -42,6 +43,7 @@
     text-align: center;
     position: relative;
     z-index: 2;
+    margin-top: -60px;
 
     &:after {
       position: absolute;
@@ -53,6 +55,13 @@
       border-radius: 50%;
       height: 15px;
       box-shadow: 0 40px 45px rgba(0,0,0,0.7);
+    }
+
+    &.p2 {
+
+      img {
+        transform: rotateY(180deg);
+      }
     }
 
     img {
@@ -71,27 +80,9 @@
     //border: 1px solid blue;
     position: absolute;
     width: 100%;
-    margin-top: 290px;
+    margin-top: 245px;
     text-align: center;
     z-index: 5 !important;
-
-    .select-btn {
-      background: transparent;
-      position: relative !important;
-      border: 2px solid #440000;
-      border-radius: 14px;
-      padding: 10px 15px;
-      font-weight: bold;
-      color: #440000;
-      font-size: 30px;
-      cursor: pointer;
-      z-index: 6 !important;
-
-      &:hover {
-        background: #440000;
-        color: #666666;
-      }
-    }
   }
 
   /*---------------
@@ -102,10 +93,18 @@
     //border-bottom: 2px solid black;
     position: absolute;
     width: 100%;
-    margin-top: 290px;
+    margin-top: 245px;
     text-align: center;
     z-index: 2;
     animation-duration: .8s;
+
+    &.blue h1 {
+      text-shadow: 0 0 6px rgba(0,0,255,0.4), 0 24px 38px rgba(0,0,0,0.6);;
+    }
+
+    &.red h1{
+      text-shadow: 0 0 6px rgba(255,0,0,0.6), 0 24px 38px rgba(0,0,0,0.6);
+    }
 
     h1 {
       font-size: 3em;
