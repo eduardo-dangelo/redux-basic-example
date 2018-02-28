@@ -25,6 +25,9 @@
     top: 400px;
   }
 
+  /*----------
+    MESSAGES
+   ---------*/
 
   .heading-container {
     //border: 1px solid orange;
@@ -38,11 +41,11 @@
     }
 
     &.blue h1 {
-      text-shadow: 0 0 6px rgba(0,0,255,0.4), 0 24px 38px rgba(0,0,0,0.6);;
+      text-shadow: 0 0 6px rgba(0,0,255,0.0), 0 2px 38px rgba(0,0,0,0.1);;
     }
 
     &.red {
-      text-shadow: 0 0 6px rgba(255,0,0,0.6), 0 24px 38px rgba(0,0,0,0.6);
+      text-shadow: 0 0 6px rgba(255,0,0,0.0), 0 2px 38px rgba(0,0,0,0.1);
     }
 
     @media all and (max-width: 1320px) {
@@ -66,6 +69,11 @@
     transform: rotateX(35deg);
     transition: 2s;
 
+    @media all and (max-width: 700px) {
+      width: 80% !important;
+      transform: rotateX(0deg);
+    }
+
     &.hide-menu {
       display: none !important;
       transition: 1s;
@@ -80,6 +88,18 @@
       border: 3px solid #440000;
       box-shadow: 0 42px 48px rgba(0,0,0,0.4);
       transition: .1s ease;
+
+      @media all and (max-width: 1020px) {
+        width: 70px;
+        height: 70px;
+      }
+
+      @media all and (max-width: 700px) {
+        width: 21% !important;
+        margin: 1%;
+        transform: rotateX(0deg);
+        height: auto;
+      }
 
       img {
         width: 100%;
@@ -100,11 +120,6 @@
         border: 3px solid blue;
         box-shadow: 0 42px 48px rgba(0,0,0,0.4), 0 12px 38px rgba(0,0,255,0.6);
         filter: grayscale(0);
-      }
-
-      @media all and (max-width: 1020px) {
-        width: 70px;
-        height: 70px;
       }
     }
 

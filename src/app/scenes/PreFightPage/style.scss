@@ -34,11 +34,11 @@ CHARACTER - HERO
       bottom: -120px;
 
       &.blue h1 {
-        text-shadow: 0 0 6px rgba(0,0,255,0.4), 0 24px 38px rgba(0,0,0,0.6);;
+        text-shadow: 0 0 6px rgba(0,0,255,0.0), 0 2px 38px rgba(0,0,0,0.1);
       }
 
       &.red h1{
-        text-shadow: 0 0 6px rgba(255,0,0,0.6), 0 24px 38px rgba(0,0,0,0.6);
+        text-shadow: 0 0 6px rgba(255,0,0,0.0), 0 2px 38px rgba(0,0,0,0.1);
       }
 
       @media all and (max-width: 940px) {
