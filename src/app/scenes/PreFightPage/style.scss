@@ -22,6 +22,11 @@ CHARACTER - HERO
     height: 460px;
     z-index: 1;
 
+    @media all and (max-width: 1260px) {
+      height: 350px;
+      width: 350px;
+    }
+
     .display-name-container {
       position: absolute;
       //border: 1px solid green;
@@ -35,6 +40,13 @@ CHARACTER - HERO
       &.red h1{
         text-shadow: 0 0 6px rgba(255,0,0,0.6), 0 24px 38px rgba(0,0,0,0.6);
       }
+
+      @media all and (max-width: 940px) {
+
+        h1 {
+          font-size: 3em;
+        }
+      }
     }
 
     img {
@@ -44,6 +56,16 @@ CHARACTER - HERO
       height: 100%;
     }
 
+    @media all and (max-width: 940px) {
+      height: 260px;
+      width: 260px;
+    }
+
+    @media all and (max-width: 680px) {
+      height: 180px;
+      width: 180px;
+    }
+
     &.player1 {
       left: 120px;
       //text-align: right;
@@ -51,6 +73,14 @@ CHARACTER - HERO
 
       img {
         right: 0;
+      }
+
+      @media all and (max-width: 1360px) {
+        left: 10px;
+      }
+
+      @media all and (max-width: 940px) {
+        //top: 0;
       }
     }
 
@@ -63,6 +93,18 @@ CHARACTER - HERO
         left: 0;
         transform: rotateY(180deg);
       }
+
+      @media all and (max-width: 1360px) {
+        right: 10px;
+      }
+
+      @media all and (max-width: 940px) {
+        //top: 300px;
+      }
+
+      @media all and (max-width: 680px) {
+        //top: 380px;
+      }
     }
   }
 
@@ -70,5 +112,25 @@ CHARACTER - HERO
     width: 100%;
     //border: 6px dashed orange;
     text-align: center;
+
+    @media all and (max-width: 1340px) {
+      img {
+        width: 150px;
+      }
+    }
+
+    @media all and (max-width: 940px) {
+      img {
+        width: 100px;
+      }
+    }
+
+    @media all and (max-width: 680px) {
+      margin-top: 80px;
+
+      img {
+        width: 60px;
+      }
+    }
   }
 }
