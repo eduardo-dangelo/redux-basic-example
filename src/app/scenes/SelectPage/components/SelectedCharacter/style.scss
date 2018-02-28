@@ -137,9 +137,11 @@
    ------------*/
 
   .display-name-container {
-    //border-bottom: 2px solid black;
+    //border: 2px solid black;
+    //background: #bababa;
     position: absolute;
     width: 100%;
+    transform: skewX(20deg);
     margin-top: 245px;
     text-align: center;
     z-index: 2;
