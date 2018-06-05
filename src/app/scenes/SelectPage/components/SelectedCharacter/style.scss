@@ -63,14 +63,14 @@
 
     &:after {
       position: absolute;
-      bottom: 40px;
+      bottom: 50px;
       right: 30%;
       content: '';
       background: transparent;
-      width: 40%;
+      width: 60%;
       border-radius: 50%;
       height: 15px;
-      box-shadow: 0 40px 45px rgba(0,0,0,0.7);
+      box-shadow: 0 40px 45px rgba(2,0,1,0.3);
     }
 
     &.p2 {

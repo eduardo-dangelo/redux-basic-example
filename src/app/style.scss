@@ -20,7 +20,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: Dimitri;
-  background: #666666;
+  //background: linear-gradient(to bottom, red, yellow, darken(red, 20%));
+  //background: linear-gradient(to bottom, #999999, #444444, #666666);
+  background: linear-gradient(to bottom, #999999, #bbbdb9, #6f6f72);
 }
 
 .app {
