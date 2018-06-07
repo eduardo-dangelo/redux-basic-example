@@ -1,6 +1,6 @@
-/*---------------
+/********************
  CHARACTER CONTAINER
- ------------*/
+ ********************/
 
 .character-container {
   //border: 1px solid orange;
@@ -48,18 +48,18 @@
     right: 0;
   }
 
-  /*---------------
+  /************
     CHARACTER
-  ------------*/
+  *************/
 
   .character {
+    //border: 3px dashed green;
     height: 400px;
     width: 100%;
-    //border: 3px solid green;
     text-align: center;
     position: relative;
     z-index: 2;
-    margin-top: -60px;
+    margin-top: -160px;
 
     &:after {
       position: absolute;
@@ -81,8 +81,8 @@
     }
 
     img {
-      margin: auto;
       //border: 1px solid darkred;
+      margin: auto;
       height: 400px;
       position: relative;
     }
@@ -115,9 +115,9 @@
     }
   }
 
-  /*---------------
+  /****************
     CONFIRM BUTTON
-   ------------*/
+  *****************/
 
   .select-btn-container {
     //border: 1px solid blue;
@@ -132,17 +132,14 @@
     }
   }
 
-  /*---------------
+  /***************************
     CHARACTER - DISPLAY NAME
-   ------------*/
+  ***************************/
 
   .display-name-container {
-    //border: 2px solid black;
-    //background: #bababa;
     position: absolute;
     width: 100%;
-    transform: skewX(20deg);
-    margin-top: 245px;
+    margin-top: 165px;
     text-align: center;
     z-index: 2;
     animation-duration: .8s;

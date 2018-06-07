@@ -24,7 +24,11 @@ class SelectedCharacter extends React.Component {
       )
     }
 
-    return null
+    return (
+      <div className={`display-name-container ${color} animated ${nameAnimation}`}>
+        <h1>{player.character.name}</h1>
+      </div>
+    )
   }
 
   renderConfirmButton = () => {
