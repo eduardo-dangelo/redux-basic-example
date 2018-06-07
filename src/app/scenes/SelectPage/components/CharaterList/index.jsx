@@ -104,6 +104,7 @@ class CharacterList extends React.Component {
         <div className="heading-container">
           <ButtonAnimated
             animation={!dbz.finishSelection ? 'zoomInDown' : 'zoomOut'}
+            waiting={true}
             onClick={this.handleStartFight()}
             content={'Start Fight'}
           />

@@ -35,14 +35,14 @@ class StartPage extends React.Component {
           <div className={`start-page-container animated ${!start ? 'bounceInUp' : 'bounceOutDown' }`}>
             <LogoAnimated animation="rotateIn"/>
             {/*<h1>Dragon Ball</h1>*/}
-            <div className="dbz-logo-container">
+            <div className="animated bounceUp dbz-logo-container">
               <img src={require('../../../img/logo_dragon_ball.svg')} alt="Dragon Ball"/>
             </div>
-            <h2 className=" animated bounce">A Fight Game Menu</h2>
+            <h2 className="title animated bounce">A Fight Game Menu</h2>
             <ButtonAnimated
               animation={!start ? 'zoomIn' : 'zoomOut'}
               onClick={this.handleStartApplication()}
-              content={'START'}
+              content={'Start'}
             />
           </div>
         </div>

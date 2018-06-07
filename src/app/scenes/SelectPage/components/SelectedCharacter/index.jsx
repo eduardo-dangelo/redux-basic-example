@@ -31,7 +31,7 @@ class SelectedCharacter extends React.Component {
     const { onConfirm, buttonAnimation} = this.props
     return (
       <div className={`select-btn-container animated ${buttonAnimation}`}>
-        <button className="action-btn" onClick={onConfirm}>
+        <button className="action-btn waiting" onClick={onConfirm}>
           Select
         </button>
       </div>
