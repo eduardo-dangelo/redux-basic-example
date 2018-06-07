@@ -16,13 +16,6 @@ class SelectedCharacter extends React.Component {
 
   renderPlayerName = () => {
     const { player, color, nameAnimation } = this.props
-    if (player.isPlayerReady) {
-      return (
-          <div className={`display-name-container ${color} animated ${nameAnimation}`}>
-            <h1>{player.character.name}</h1>
-          </div>
-      )
-    }
 
     return (
       <div className={`display-name-container ${color} animated ${nameAnimation}`}>
