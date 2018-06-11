@@ -40,9 +40,8 @@ class SelectedCharacter extends React.Component {
     return (
       <div
         className={`character-container animated
-          ${dbz.player2.isPlayerReady && isPlayerReady}
-          ${containerAnimation} ${className}`
-        }
+        ${dbz.player2.isPlayerReady && isPlayerReady}
+        ${containerAnimation} ${className}`}
       >
         {this.renderPLayerImage()}
         {this.renderPlayerName()}
