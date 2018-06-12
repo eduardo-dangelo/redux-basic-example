@@ -3,13 +3,31 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../../../reducer'
 import './style.scss'
+import FaSpinner from 'react-icons/lib/fa/spinner';
 
 class SelectedCharacter extends React.Component {
+  state = {
+    loading: true,
+  }
+
+  OnLoadPlayerImage = () => {
+    this.setState({
+      loading: false,
+    })
+  }
+
   renderPLayerImage = () => {
     const { player, isPlayer2 } = this.props
+    const { loading } = this.state
     return (
       <div className={`character ${isPlayer2 && 'p2'} animated ${player.isPlayerReady && 'pulse'}`}>
-        <img src={player.character.full} alt={player.character.name}/>
+        <img
+          src={player.character.full}
+          alt={player.character.name}
+          onLoad={this.OnLoadPlayerImage}
+          className={loading ? 'invisible' : 'animated fadeIn'}
+        />
+        {loading && <FaSpinner className="spin"/>}
       </div>
     )
   }

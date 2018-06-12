@@ -136,3 +136,24 @@
     }
   }
 }
+
+/*********
+  Helpers
+**********/
+
+.spin-menu-item {
+  animation: Spin 1s linear infinite;
+  font-size: 2em;
+  opacity: .5;
+  //position: absolute;
+  top: 40%;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+@keyframes Spin {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(359deg); }
+}

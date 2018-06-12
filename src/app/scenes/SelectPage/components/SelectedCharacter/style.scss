@@ -168,3 +168,24 @@
     }
   }
 }
+
+/*********
+  Helpers
+**********/
+
+.invisible {
+  opacity: 0;
+}
+
+.spin {
+  animation: Spin 1s linear infinite;
+  font-size: 2em;
+  opacity: .5;
+  position: absolute;
+  top: 40%;
+}
+
+@keyframes Spin {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(359deg); }
+}

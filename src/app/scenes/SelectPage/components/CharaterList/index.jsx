@@ -6,6 +6,7 @@ import { actions } from '../../../../reducer'
 import LogoAnimated from '../../../../components/LogoAnimated'
 import ButtonAnimated from '../../../../components/ButtonAnimated'
 import './style.scss'
+import CharacterListItem from './components/CharacterListItem'
 
 class CharacterList extends React.Component {
   state = {
@@ -59,19 +60,19 @@ class CharacterList extends React.Component {
     const { hideMenu } = this.state
     const player1Active = dbz.player1.character && dbz.player1.character.name
     const player2Active = dbz.player2.character && dbz.player2.character.name
-    console.log('hideMenu', hideMenu)
 
     return (
       <div className={`character-list ${dbz.player2.isPlayerReady && 'animated zoomOutUp'} ${hideMenu && 'hide-menu'}`}>
         {dbz.characters.map((character) => {
           return (
-            <div
+            <CharacterListItem
+              dbz={dbz}
               key={character.name}
-              className={`character ${dbz.player1.isPlayerReady ? 'player2' : 'player1'} ${player1Active === character.name && 'active-player1'} ${player2Active === character.name && 'active-player2'}`}
-              onClick={this.handleSelectCharacter(character)}
-            >
-              <img src={character.icon} alt={character.name}/>
-            </div>
+              character={character}
+              player1Active={player1Active}
+              player2Active={player2Active}
+              onSelectCharacter={this.handleSelectCharacter(character)}
+            />
           )
         })}
       </div>
