@@ -11,6 +11,16 @@ class StartPage extends React.Component {
   state = {
     start: false,
     logo: false,
+    isMobileView: false,
+  }
+  
+  componentWillMount() {
+    console.log('this.props', this.props)
+    if (window.innerWidth < 743) {
+      this.setState({
+        isMobileView: true,
+      })
+    }
   }
 
   handleStartApplication = () => () => {
@@ -27,23 +37,35 @@ class StartPage extends React.Component {
 
   renderStartPage = () => {
     const { dbz } = this.props
-    const { start } = this.state
+    const { start, isMobileView } = this.state
 
-    if (!dbz.start) {
+    if (!dbz.start && !isMobileView) {
       return (
         <div className="start-page">
           <div className={`start-page-container animated ${!start ? 'bounceInUp' : 'bounceOutDown' }`}>
             <LogoAnimated animation="rotateIn"/>
-            {/*<h1>Dragon Ball</h1>*/}
             <div className="animated bounceUp dbz-logo-container">
               <img src={require('../../../img/logo_dragon_ball.svg')} alt="Dragon Ball"/>
             </div>
-            <h2 className="title animated bounce">A Fight Game Menu</h2>
+            <h2 className="title animated bounce">Fight-Game Menu</h2>
             <ButtonAnimated
               animation={!start ? 'zoomIn' : 'zoomOut'}
               onClick={this.handleStartApplication()}
               content={'Start'}
             />
+          </div>
+        </div>
+      )
+    }
+
+    if (isMobileView) {
+      return (
+        <div className="start-page">
+          <div className={`start-page-container animated ${!start ? 'bounceInUp' : 'bounceOutDown' }`}>
+            <LogoAnimated animation="rotateIn"/>
+            <h2 className="title animated bounce">Fight-Game Menu</h2>
+            <p>This app is not suitable for this screen size.</p>
+            <p>Please, go to a larger screen to view this app.</p>
           </div>
         </div>
       )

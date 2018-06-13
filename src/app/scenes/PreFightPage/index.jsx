@@ -17,7 +17,7 @@ class PreFightPage extends React.Component {
   }
 
   componentWillMount() {
-    const { actions, dbz } = this.props
+    const { actions } = this.props
 
     setTimeout(() => (
       this.setState({
