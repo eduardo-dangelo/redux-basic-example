@@ -1,6 +1,6 @@
-/*---------
+/********
   FONTS
- -------*/
+ *******/
 
 @font-face {
   font-family: Saiyan;
@@ -24,9 +24,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-/*---------
+/*******
   BODY
- -------*/
+ ******/
 
 body {
   margin: 0;
@@ -36,23 +36,21 @@ body {
 }
 
 .app {
-  //border: 1px dashed orange;
-  position: relative;
-  overflow: hidden;
+  margin: auto;
   width: 100%;
   height: 100vh;
   max-width: 1600px;
-  margin: auto;
-  max-height: 800px
+  max-height: 800px;
+  overflow: hidden;
+  position: relative;
 }
 
-/*---------
+/***********
   HEADINGS
- -------*/
+ **********/
 
 h1 {
   font-size: 5em;
-  //color: #440000;
   margin: 15px 0;
 }
 
@@ -62,17 +60,16 @@ h2 {
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
-/*-----------
+/*******
   LOGO
- ------*/
+ ******/
 
 .logo-container {
-  //border: 2px solid orange;
-  cursor: pointer;
   width: 150px;
+  transition: 1s;
+  cursor: pointer;
   margin: 15px auto;
   animation-duration: 1s;
-  transition: 1s;
 
   img {
     width: 100%;
@@ -80,12 +77,10 @@ h2 {
 }
 
 .dbz-logo-container {
-  //border: 2px solid orange;
-  cursor: pointer;
   width: 450px;
-  margin: 15px auto;
-  //animation-duration: 1s;
   transition: 1s;
+  cursor: pointer;
+  margin: 15px auto;
   animation-duration: 2s;
 
   img {
@@ -98,11 +93,11 @@ h2 {
 ***********/
 
 .section {
-  border: 3px solid #666666;
-  border-radius: 4px;
+  width: 300px;
   padding: 30px;
   margin: 15px auto;
-  width: 300px;
+  border-radius: 4px;
+  border: 3px solid #666666;
 }
 
 /**********
@@ -110,35 +105,33 @@ h2 {
 **********/
 
 .action-btn {
-  border-radius: 28px;
-  padding: 13px 30px;
-  //width: 240px;
-  font-family: Roboto, sans-serif;
-  letter-spacing: 1px;
-  background: linear-gradient(to top, #d3d3f3, #bdbdbd, #d2c2c2);
-  font-weight: bold;
-  color: #3d3d3d;
-  font-size: 1.5em;
-  cursor: pointer;
-  animation-duration: 2s;
-  box-shadow:  0 10px 44px rgba(0,0,0,0.1), 0 -1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.5);
-  transition: .3s ease;
-  position: relative;
-  align-items: center;
   z-index: 2;
+  color: #3d3d3d;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: relative;
+  padding: 13px 30px;
+  border-radius: 28px;
+  align-items: center;
+  letter-spacing: 1px;
+  transition: .3s ease;
+  animation-duration: 2s;
+  font-family: Roboto, sans-serif;
+  background: linear-gradient(to top, #d3d3f3, #bdbdbd, #d2c2c2);
+  box-shadow:  0 10px 44px rgba(0,0,0,0.1), 0 -1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.5);
 
   &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
     top: 0;
-    border-radius: 28px;
-    border: 1px solid #bbbbbb;
-    //transition: .6s ease;
+    left: 0;
     z-index: 0;
     opacity: 1;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 28px;
+    border: 1px solid #bbbbbb;
     box-shadow: inset 0 0 12px rgba(0,0,0,0);
   }
 
@@ -147,45 +140,32 @@ h2 {
     color: #4d4d4d;
 
     &:before {
-      width: 110%;
-      height: 140%;
-      border: 1px solid #000000;
       top: -20%;
       left: -5%;
-      border-radius: 48px;
       opacity: 0;
+      width: 110%;
+      height: 140%;
       transition: 1s ease;
+      border-radius: 48px;
+      border: 1px solid #000000;
       box-shadow: inset 0 0 12px rgba(255,255,255,0.4);
     }
   }
 
   &:active {
-    //transform: translateY(2px);
     transition: none;
     box-shadow: 0 2px 26px rgba(0,0,0,0.6), inset 0 -1px 2px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.5);
   }
 
   &.waiting {
-    animation: Waiting 2.5s linear infinite;
-    transition: .3s ease;
     animation-delay: 3s;
+    transition: .3s ease;
+    animation: Waiting 2.5s linear infinite;
   }
 }
 
 @keyframes Waiting {
-  0% {
-    color: #223232;
-    box-shadow: 0 0 0px #223232;
-  }
-
-  50% {
-    color: #46bf66;
-    box-shadow: 0 0 12px #46bf66;
-    //text-shadow: 0 0 16px greenyellow;
-  }
-
-  100% {
-    color: #223232;
-    box-shadow: 0 0 0px #223232;
-  }
+  0% { color: #223232; box-shadow: 0 0 0 #223232; }
+  50% { color: #46bf66; box-shadow: 0 0 12px #46bf66; }
+  100% { color: #223232; box-shadow: 0 0 0px #223232; }
 }

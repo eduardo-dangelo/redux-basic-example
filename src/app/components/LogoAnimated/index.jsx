@@ -22,7 +22,10 @@ class LogoAnimated extends React.Component {
     const { logo } = this.state
     return (
       <div className={`animated ${animation}`}>
-        <div onClick={this.handleClickLogo()} className={`logo-container animated ${logo && 'tada'}`}>
+        <div
+          onClick={this.handleClickLogo()}
+          className={`logo-container animated ${logo && 'tada'}`}
+        >
           <img src={require('../../../img/logo.png')} alt="dragon ball"/>
         </div>
       </div>

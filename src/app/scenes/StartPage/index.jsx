@@ -1,8 +1,7 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from '../../reducer'
+import { bindActionCreators } from 'redux'
 import LogoAnimated from '../../components/LogoAnimated'
 import ButtonAnimated from '../../components/ButtonAnimated'
 import './style.scss'
@@ -15,7 +14,6 @@ class StartPage extends React.Component {
   }
   
   componentWillMount() {
-    console.log('this.props', this.props)
     if (window.innerWidth < 743) {
       this.setState({
         isMobileView: true,
@@ -45,13 +43,15 @@ class StartPage extends React.Component {
           <div className={`start-page-container animated ${!start ? 'bounceInUp' : 'bounceOutDown' }`}>
             <LogoAnimated animation="rotateIn"/>
             <div className="animated bounceUp dbz-logo-container">
-              <img src={require('../../../img/logo_dragon_ball.svg')} alt="Dragon Ball"/>
+              <img alt="Dragon Ball" src={require('../../../img/logo_dragon_ball.svg')}/>
             </div>
-            <h2 className="title animated bounce">Fight-Game Menu</h2>
+            <h2 className="title animated bounce">
+              Fight-Game Menu
+            </h2>
             <ButtonAnimated
-              animation={!start ? 'zoomIn' : 'zoomOut'}
-              onClick={this.handleStartApplication()}
               content={'Start'}
+              onClick={this.handleStartApplication()}
+              animation={!start ? 'zoomIn' : 'zoomOut'}
             />
           </div>
         </div>
@@ -70,8 +70,6 @@ class StartPage extends React.Component {
         </div>
       )
     }
-
-    return null
   }
 
   render() {

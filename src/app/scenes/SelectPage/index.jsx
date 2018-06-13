@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from '../../reducer'
+import { bindActionCreators } from 'redux'
 import CharacterList from './components/CharaterList'
 import SelectedCharacter from './components/SelectedCharacter'
 
@@ -52,8 +52,6 @@ class SelectPage extends React.Component {
         </div>
       )
     }
-
-    return null
   }
 
   render() {

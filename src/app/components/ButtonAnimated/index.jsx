@@ -3,9 +3,12 @@ import { Button } from 'react-bootstrap'
 
 class ButtonAnimated extends React.Component {
   render() {
-    const { onClick, content, animation, waiting } = this.props
+    const { onClick, content, animation } = this.props
     return (
-      <Button className={`action-btn ${waiting && 'waiting-anim'} animated ${animation}`} onClick={onClick}>
+      <Button
+        onClick={onClick}
+        className={`action-btn animated ${animation}`}
+      >
         {content}
       </Button>
     )

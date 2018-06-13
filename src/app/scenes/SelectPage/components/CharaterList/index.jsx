@@ -1,12 +1,11 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../../../reducer'
 import LogoAnimated from '../../../../components/LogoAnimated'
+import CharacterListItem from './components/CharacterListItem'
 import ButtonAnimated from '../../../../components/ButtonAnimated'
 import './style.scss'
-import CharacterListItem from './components/CharacterListItem'
 
 class CharacterList extends React.Component {
   state = {
@@ -14,8 +13,6 @@ class CharacterList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { dbz } = this.props
-    console.log('dbz.player2.isPlayerReady', nextProps.dbz.player2.isPlayerReady)
 
     if (nextProps.dbz.player2.isPlayerReady) {
       setTimeout(() => (
@@ -50,8 +47,9 @@ class CharacterList extends React.Component {
 
   renderLogo = () => {
     const { dbz } = this.props
+    const animation = !dbz.finishSelection ? 'rotateIn' : 'rotateOut'
     return (
-      <LogoAnimated animation={!dbz.finishSelection ? 'rotateIn' : 'rotateOut'} />
+      <LogoAnimated animation={animation}/>
     )
   }
 
@@ -60,9 +58,11 @@ class CharacterList extends React.Component {
     const { hideMenu } = this.state
     const player1Active = dbz.player1.character && dbz.player1.character.name
     const player2Active = dbz.player2.character && dbz.player2.character.name
+    const animation = dbz.player2.isPlayerReady && 'animated zoomOutUp'
+    const hideMenuList = hideMenu && 'hide-menu'
 
     return (
-      <div className={`character-list ${dbz.player2.isPlayerReady && 'animated zoomOutUp'} ${hideMenu && 'hide-menu'}`}>
+      <div className={`character-list ${animation} ${hideMenuList}`}>
         {dbz.characters.map((character) => {
           return (
             <CharacterListItem
@@ -81,15 +81,19 @@ class CharacterList extends React.Component {
 
   renderHeadingMessage = () => {
     const { dbz } = this.props
+    const isPlayerOneReady = dbz.player1.isPlayerReady
+    const isPlayerTwoReady = dbz.player2.isPlayerReady
+    const playerOneAnimation = !isPlayerOneReady && 'bounce'
+    const playerTwoAnimation = !isPlayerTwoReady ? 'bounceInUp' : 'fadeOutUp'
 
     return (
       <div>
-        {!dbz.player1.isPlayerReady ? (
-        <div className={`heading-container red animated ${!dbz.player1.isPlayerReady && 'bounce'}`}>
-          <h1>Select Player One</h1>
-        </div>
+        {!isPlayerOneReady ? (
+          <div className={`heading-container red animated ${playerOneAnimation}`}>
+            <h1>Select Player One</h1>
+          </div>
         ) : (
-          <div className={`heading-container blue animated ${!dbz.player2.isPlayerReady ? 'bounceInUp' : 'fadeOutUp'}`}>
+          <div className={`heading-container blue animated ${playerTwoAnimation}`}>
             <h1>Select Player Two</h1>
           </div>
         )}
@@ -99,27 +103,29 @@ class CharacterList extends React.Component {
 
   renderStartFightButton = () => {
     const { dbz } = this.props
+    const isPlayerTwoReady = dbz.player2.isPlayerReady
+    const animation = !dbz.finishSelection ? 'zoomInDown' : 'zoomOut'
 
-    if (dbz.player2.isPlayerReady) {
+    if (isPlayerTwoReady) {
       return (
         <div className="heading-container">
           <ButtonAnimated
-            animation={!dbz.finishSelection ? 'zoomInDown' : 'zoomOut'}
             waiting={true}
-            onClick={this.handleStartFight()}
+            animation={animation}
             content={'Start Fight'}
+            onClick={this.handleStartFight()}
           />
         </div>
       )
     }
-
-    return null
   }
 
   render() {
     const { dbz } = this.props
+    const animation = !dbz.finish ? 'bounceInUp' : 'bounceOutDown'
+
     return (
-      <div className={`character-list-container animated ${!dbz.finish ? 'bounceInUp' : 'bounceOutDown'}`}>
+      <div className={`character-list-container animated ${animation}`}>
         {this.renderLogo()}
         {this.renderCharacterList()}
         {this.renderHeadingMessage()}

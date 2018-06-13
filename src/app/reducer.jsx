@@ -1,11 +1,11 @@
+const START = 'dbz/START'
+const RESTART = 'dbz/RESTART'
+const LOAD_FIGHT = 'dbz/LOAD_FIGHT'
+const FINISH_SELECTION = 'dbz/FINISH_SELECTION'
 const SELECT_PLAYER_ONE = 'dbz/SELECT_PLAYER_ONE'
 const SELECT_PLAYER_TWO = 'dbz/SELECT_PLAYER_TWO'
 const CONFIRM_PLAYER_ONE = 'dbz/CONFIRM_PLAYER_ONE'
 const CONFIRM_PLAYER_TWO = 'dbz/CONFIRM_PLAYER_TWO'
-const START = 'dbz/START'
-const FINISH_SELECTION = 'dbz/FINISH_SELECTION'
-const LOAD_FIGHT = 'dbz/LOAD_FIGHT'
-const RESTART = 'dbz/RESTART'
 
 const initialState = {
   characters: [
@@ -73,6 +73,21 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
   switch(action.type) {
+    case START:
+      return {
+        ...state,
+        start: true,
+      };
+    case LOAD_FIGHT:
+      return {
+        ...state,
+        loadFight: true,
+      };
+    case FINISH_SELECTION:
+      return {
+        ...state,
+        finishSelection: true,
+      };
     case SELECT_PLAYER_ONE:
       return {
         ...state,
@@ -105,21 +120,6 @@ export function reducer(state = initialState, action) {
           isPlayerReady: true,
         }
       };
-    case START:
-      return {
-        ...state,
-        start: true,
-      };
-    case FINISH_SELECTION:
-      return {
-        ...state,
-        finishSelection: true,
-      };
-    case LOAD_FIGHT:
-      return {
-        ...state,
-        loadFight: true,
-      };
     case RESTART:
       return initialState;
     default:
@@ -127,22 +127,22 @@ export function reducer(state = initialState, action) {
   }
 }
 
+const start = () => ({ type: START })
+const restart = () => ({ type: RESTART })
+const loadFight = () => ({ type: LOAD_FIGHT })
+const finishSelection = () => ({ type: FINISH_SELECTION })
 const selectPlayerOne = (character) => ({ type: SELECT_PLAYER_ONE, payload: character })
 const selectPlayerTwo = (character) => ({ type: SELECT_PLAYER_TWO, payload: character })
 const confirmPlayerOne = () => ({ type: CONFIRM_PLAYER_ONE })
 const confirmPlayerTwo = () => ({ type: CONFIRM_PLAYER_TWO })
-const start = () => ({ type: START })
-const finishSelection = () => ({ type: FINISH_SELECTION })
-const loadFight = () => ({ type: LOAD_FIGHT })
-const restart = () => ({ type: RESTART })
 
 export const actions = {
+  start,
+  restart,
+  loadFight,
+  finishSelection,
   selectPlayerOne,
   selectPlayerTwo,
   confirmPlayerOne,
   confirmPlayerTwo,
-  start,
-  finishSelection,
-  loadFight,
-  restart,
 }

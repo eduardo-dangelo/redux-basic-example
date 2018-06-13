@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app'
-import registerServiceWorker from './registerServiceWorker'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import './index.scss'
+import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers'
+import App from './app'
+import './index.scss'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
 

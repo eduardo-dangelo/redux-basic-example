@@ -1,20 +1,19 @@
-/********************
- CHARACTER CONTAINER
- ********************/
+/**********************
+  CHARACTER CONTAINER
+ *********************/
 
 .character-container {
-  //border: 1px solid orange;
-  position: absolute;
-  height: 100%;
-  width: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  animation-duration: .5s;
-  margin-left: 0;
-  margin-right: 0;
   top: 0;
   z-index: 3;
+  width: 400px;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  align-items: center;
+  animation-duration: .5s;
 
   @media all and (max-width: 1320px) {
     width: 280px;
@@ -29,8 +28,8 @@
   }
 
   &.get-closer-player1 {
-    margin-left: 150px;
     top: -40px;
+    margin-left: 150px;
     transition: 1.5s ease;
 
     @media all and (max-width: 1340px) {
@@ -39,8 +38,8 @@
   }
 
   &.get-closer-player2 {
-    margin-right: 150px;
     top: -40px;
+    margin-right: 150px;
     transition: 1.5s ease;
 
     @media all and (max-width: 1340px) {
@@ -58,23 +57,22 @@
   *************/
 
   .character {
-    //border: 3px dashed green;
-    height: 400px;
+    z-index: 2;
     width: 100%;
+    height: 400px;
     text-align: center;
     position: relative;
-    z-index: 2;
     margin-top: -160px;
 
     &:after {
-      position: absolute;
-      bottom: 50px;
       right: 30%;
-      content: '';
-      background: transparent;
       width: 60%;
-      border-radius: 50%;
+      content: '';
       height: 15px;
+      bottom: 50px;
+      border-radius: 50%;
+      position: absolute;
+      background: transparent;
       box-shadow: 0 40px 45px rgba(2,0,1,0.3);
     }
 
@@ -87,7 +85,6 @@
     }
 
     img {
-      //border: 1px solid darkred;
       margin: auto;
       height: 400px;
       position: relative;
@@ -108,8 +105,8 @@
 
     @media all and (max-width: 740px) {
       width: 200px;
-      margin-top: 0;
       height: auto;
+      margin-top: 0;
 
       img {
         height: 200px;
@@ -121,16 +118,15 @@
     }
   }
 
-  /****************
+  /*****************
     CONFIRM BUTTON
   *****************/
 
   .select-btn-container {
-    //border: 1px solid blue;
-    position: absolute;
     width: 100%;
     margin-top: 245px;
     text-align: center;
+    position: absolute;
     z-index: 5 !important;
 
     @media all and (max-width: 740px) {
@@ -143,11 +139,11 @@
   ***************************/
 
   .display-name-container {
-    position: absolute;
+    z-index: 2;
     width: 100%;
     margin-top: 165px;
     text-align: center;
-    z-index: 2;
+    position: absolute;
     animation-duration: .8s;
 
     &.blue h1 {
@@ -175,20 +171,20 @@
   }
 }
 
-/*********
-  Helpers
-**********/
+/**********
+  HELPERS
+ *********/
 
 .invisible {
   opacity: 0;
 }
 
 .spin {
-  animation: Spin 1s linear infinite;
-  font-size: 2em;
-  opacity: .5;
-  position: absolute;
   top: 40%;
+  opacity: .5;
+  font-size: 2em;
+  position: absolute;
+  animation: Spin 1s linear infinite;
 }
 
 @keyframes Spin {

@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '../../../../reducer'
-import './style.scss'
 import FaSpinner from 'react-icons/lib/fa/spinner';
+import './style.scss'
 
 class SelectedCharacter extends React.Component {
   state = {
@@ -19,8 +19,11 @@ class SelectedCharacter extends React.Component {
   renderPLayerImage = () => {
     const { player, isPlayer2 } = this.props
     const { loading } = this.state
+    const isPlayerTwo = isPlayer2 && 'p2'
+    const animation = player.isPlayerReady && 'pulse'
+
     return (
-      <div className={`character ${isPlayer2 && 'p2'} animated ${player.isPlayerReady && 'pulse'}`}>
+      <div className={`character ${isPlayerTwo} animated ${animation}`}>
         <img
           src={player.character.full}
           alt={player.character.name}

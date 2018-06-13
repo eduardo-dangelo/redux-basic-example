@@ -13,23 +13,30 @@ class CharacterListItem extends React.Component {
   }
 
   render() {
-    const { character, dbz, player1Active, player2Active, onSelectCharacter } = this.props
+    const {
+      dbz,
+      character,
+      player1Active,
+      player2Active,
+      onSelectCharacter,
+    } = this.props
+
     const { loading } = this.state
+    const activePlayer = dbz.player1.isPlayerReady ? 'player2' : 'player1'
+    const isPlayerOneActive = player1Active === character.name && 'active-player1'
+    const isPlayerTwoActive = player2Active === character.name && 'active-player2'
+
     return (
       <div
         key={character.name}
-        className={
-          `character ${dbz.player1.isPlayerReady ? 'player2' : 'player1'}
-          ${player1Active === character.name && 'active-player1'}
-          ${player2Active === character.name && 'active-player2'}`
-        }
         onClick={onSelectCharacter}
+        className={`character ${activePlayer} ${isPlayerOneActive} ${isPlayerTwoActive}`}
       >
         <img
           src={character.icon}
           alt={character.name}
-          className={loading ? 'invisible' : 'animated fadeIn'}
           onLoad={this.OnImageLoad}
+          className={loading ? 'invisible' : 'animated fadeIn'}
         />
         {loading && <FaSpinner className="spin-menu-item"/>}
       </div>
