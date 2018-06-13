@@ -131,7 +131,7 @@ class PreFightPage extends React.Component {
               </div>
             </div>
           </div>
-          <div className={`progress-bar-container animated ${fadeOut && 'bounceOutDown'}`}>
+          <div className={`progress-bar-container animated ${fadeOut ? 'fadeOut' : 'bounceInUp'}`}>
             <Line percent={this.state.statusBar} strokeWidth="1" strokeColor="#4d4d4d" />
           </div>
         </div>
