@@ -134,3 +134,15 @@ CHARACTER - HERO
     }
   }
 }
+
+.progress-bar-container {
+  //border: 1px dashed black;
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+
+  svg {
+    margin: 30px 20%;
+    max-width: 60%;
+  }
+}
