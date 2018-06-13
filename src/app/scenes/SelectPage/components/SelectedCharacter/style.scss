@@ -17,7 +17,11 @@
   z-index: 3;
 
   @media all and (max-width: 1320px) {
-    width: 200px;
+    width: 280px;
+  }
+
+  @media all and (max-width: 1320px) {
+    width: 260px;
   }
 
   @media all and (max-width: 740px) {
@@ -46,6 +50,7 @@
 
   &.player-2 {
     right: 0;
+    text-align: right;
   }
 
   /************
@@ -74,6 +79,7 @@
     }
 
     &.p2 {
+      right: 0;
 
       img {
         transform: rotateY(180deg);
@@ -88,7 +94,7 @@
     }
 
     @media all and (max-width: 1320px) {
-      width: 200px;
+      width: 300px;
       height: auto;
 
       img {
